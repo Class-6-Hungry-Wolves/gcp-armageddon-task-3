@@ -33,7 +33,7 @@ resource "google_compute_router" "nick-router" {
 }
 resource "google_compute_router" "xavier-router" {
   name = "xavier-router"
-  region = "us-west"
+  region = "us-west1"
   network = google_compute_network.main.id
 }
 resource "google_compute_router" "law-router" {
