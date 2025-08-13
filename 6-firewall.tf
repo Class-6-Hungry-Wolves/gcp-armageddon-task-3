@@ -6,7 +6,7 @@ resource "google_compute_firewall" "hq-admin-allow-rdp" {
     protocol = "tcp"
     ports    = ["3389"]
   }
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = ["0.0.0.0/0"]                #
   target_tags = ["hq-admin-allow-rdp"]
 }
 
