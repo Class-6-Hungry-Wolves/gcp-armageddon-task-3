@@ -32,7 +32,7 @@ resource "google_compute_region_autoscaler" "vito-autoscaler-region" {
 resource "google_compute_region_autoscaler" "yashua-autoscaler-region" {
   name   = "yashua-autoscaler-region"
   region = "asia-east2"
-  target = google_compute_region_instance_group_manager.yashua-app.id
+  target = google_compute_region_instance_group_manager.yahshua-app.id
 
   autoscaling_policy {
     max_replicas    = 6
