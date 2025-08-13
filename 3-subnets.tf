@@ -13,7 +13,7 @@ resource "google_compute_subnetwork" "jourdan-linux-private-subnet" {
   ip_cidr_range            = "10.80.35.0/24"
   region                   = "us-central1"
   network                  = google_compute_network.main.id
-  private_ip_google_access = false 
+  private_ip_google_access = false
 }
 
 resource "google_compute_subnetwork" "vito-linux-private-subnet" {

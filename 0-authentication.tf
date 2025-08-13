@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "class65gcpproject-462600"
+  project     = "lizzoandme"
   region      = "us-central1"
-  credentials = "class65gcpproject-462600-3dd7a46c5330.json"
+  credentials = "lizzoandme-00273d54b785.json"
 }
