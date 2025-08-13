@@ -2,9 +2,9 @@
 # and the bucket you created in GCP
 terraform {
   backend "gcs" {
-    bucket      = "gcp-armageddon-bucket-for-tfstate12345"
+    bucket      = "gcp-armageddon-bucket-for-tfstate71725"
     prefix      = "terraform/state"
-    credentials = "lizzoandme-00273d54b785.json"
+    credentials = "class65gcpproject-462600-3dd7a46c5330.json"
   }
 
   required_providers {
