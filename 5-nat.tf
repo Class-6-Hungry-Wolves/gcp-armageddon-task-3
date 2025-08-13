@@ -1,25 +1,25 @@
 # jourdan NAT
-# resource "google_compute_router_nat" "jourdan-nat" {
-#   name   = "jourdan-nat"
-#   router = google_compute_router.jourdan-router.name
-#   region = "us-central1"
+resource "google_compute_router_nat" "jourdan-nat" {
+  name   = "jourdan-nat"
+  router = google_compute_router.jourdan-router.name
+  region = "us-central1"
 
-#   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-#   nat_ip_allocate_option             = "MANUAL_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+  nat_ip_allocate_option             = "MANUAL_ONLY"
 
-#   subnetwork {
-#     name                    = google_compute_subnetwork.jourdan-linux-private-subnet.id
-#     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
-#   }
+  subnetwork {
+    name                    = google_compute_subnetwork.jourdan-linux-private-subnet.id
+    source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
+  }
 
-#   nat_ips = [google_compute_address.jourdan-nat.self_link]
-# }
-# resource "google_compute_address" "jourdan-nat" {
-#   name         = "jourdan-nat"
-#   address_type = "EXTERNAL"
-#   network_tier = "PREMIUM"
-#   region       = "us-central1"
-# }
+  nat_ips = [google_compute_address.jourdan-nat.self_link]
+}
+resource "google_compute_address" "jourdan-nat" {
+  name         = "jourdan-nat"
+  address_type = "EXTERNAL"
+  network_tier = "PREMIUM"
+  region       = "us-central1"
+}
 
 # joshua NAT
 resource "google_compute_router_nat" "joshua-nat" {
