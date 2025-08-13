@@ -1,8 +1,8 @@
 # Public Routing
 resource "google_compute_router" "windows-public" {
-  name                     = "us-east4-router"
-  region                   = "us-east4"
-  network                  = google_compute_network.main.id
+  name    = "us-east4-router"
+  region  = "us-east4"
+  network = google_compute_network.main.id
 }
 
 # Private Routing
@@ -37,7 +37,7 @@ resource "google_compute_router" "xavier-router" {
   network = google_compute_network.main.id
 }
 resource "google_compute_router" "law-router" {
-  name                     = "law-router"
-  region                   = "us-east1"
-  network                  = google_compute_network.main.id
+  name    = "law-router"
+  region  = "us-east1"
+  network = google_compute_network.main.id
 }
