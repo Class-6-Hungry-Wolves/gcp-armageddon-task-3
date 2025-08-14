@@ -5,8 +5,8 @@ resource "google_compute_health_check" "lb" {
   # region = "us-central1"                                      
 
   # How often in seconds the HC checks and waits for failure/success
-  check_interval_sec  = 5
-  timeout_sec         = 5
+  check_interval_sec  = 10
+  timeout_sec         = 10
 
   # Consecutive success and failure required to determine health
   healthy_threshold   = 2
@@ -30,7 +30,7 @@ resource "google_compute_backend_service" "lb" {
 
   # External LB and fully managed (next gen type, not classic)
   load_balancing_scheme = "INTERNAL_MANAGED"
-  health_checks         = [google_compute_health_check.lb.self_link]
+  health_checks         = [google_compute_health_check.lb.id]
 
   # Named port from MIG
   port_name             = "webserver"
@@ -40,28 +40,28 @@ resource "google_compute_backend_service" "lb" {
     group           = google_compute_region_instance_group_manager.jourdan-app.instance_group 
     balancing_mode  = "UTILIZATION"
   }
-    backend {
-    group           = google_compute_region_instance_group_manager.vito-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
-    backend {
-    group           = google_compute_region_instance_group_manager.joshua-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
-  backend {
-    group           = google_compute_region_instance_group_manager.nick-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
-  backend {
-    group           = google_compute_region_instance_group_manager.xavier-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
-  backend {
-    group           = google_compute_region_instance_group_manager.law-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
-  backend {
-    group           = google_compute_region_instance_group_manager.yahshua-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
+#     backend {
+#     group           = google_compute_region_instance_group_manager.vito-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+#     backend {
+#     group           = google_compute_region_instance_group_manager.joshua-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+#   backend {
+#     group           = google_compute_region_instance_group_manager.nick-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+#   backend {
+#     group           = google_compute_region_instance_group_manager.xavier-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+#   backend {
+#     group           = google_compute_region_instance_group_manager.law-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+#   backend {
+#     group           = google_compute_region_instance_group_manager.yahshua-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#  }
 }

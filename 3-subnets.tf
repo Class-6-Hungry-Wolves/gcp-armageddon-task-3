@@ -59,3 +59,12 @@ resource "google_compute_subnetwork" "yashua-linux-private-subnet" {
   network                  = google_compute_network.main.id
   private_ip_google_access = true
 }
+
+resource "google_compute_subnetwork" "proxy_subnet" {
+  name          = "l7-gilb-proxy-subnet"
+  ip_cidr_range = "10.69.0.0/24"
+  region        = "us-central1"
+  purpose       = "GLOBAL_MANAGED_PROXY"
+  role          = "ACTIVE"
+  network       = google_compute_network.main.id
+}

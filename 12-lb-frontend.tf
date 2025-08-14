@@ -13,7 +13,7 @@ resource "google_compute_global_address" "lb" {
 # Defines how incoming traffic is forwarded to the load balancer proxy based on port and protocol
 resource "google_compute_global_forwarding_rule" "lb" {
   name                  = "lb-forwarding-rule"
-  # region = "" (optional if provider default is set)
+  depends_on            = [google_compute_subnetwork.proxy_subnet]
 
   # We are sending traffic to a HTTP Proxy as this is an application LB
   target                = google_compute_target_http_proxy.lb.self_link
@@ -21,11 +21,12 @@ resource "google_compute_global_forwarding_rule" "lb" {
   # Listen for traffic on Port 80 using TCP
   port_range            = "80"
   ip_protocol           = "TCP"
-  ip_address            = google_compute_global_address.lb.address
+#   ip_address            = google_compute_global_address.lb.address
   load_balancing_scheme = "INTERNAL_MANAGED" # Current Gen LB (not classic)
   
   # Regional LB have forwaring rules that are scoped to a VPC
   network               = google_compute_network.main.id
+  subnetwork = google_compute_subnetwork.jourdan-linux-private-subnet.id
 
   # During the destroy process, we need to ensure LB is deleted first, before proxy-only subnet
 }

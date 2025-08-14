@@ -1,11 +1,11 @@
-resource "google_compute_region_health_check" "jourdan-hc" {
+resource "google_compute_health_check" "jourdan-hc" {
   name                = "jourdan-hc"
-  check_interval_sec  = 5
+  check_interval_sec  = 10
   timeout_sec         = 5
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/jourdan-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -17,7 +17,7 @@ resource "google_compute_region_health_check" "vito-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/vito-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -29,7 +29,7 @@ resource "google_compute_region_health_check" "joshua-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/joshua-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -41,7 +41,7 @@ resource "google_compute_region_health_check" "nick-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/nick-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -53,7 +53,7 @@ resource "google_compute_region_health_check" "xavier-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/xavier-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -65,7 +65,7 @@ resource "google_compute_region_health_check" "law-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/law-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
@@ -77,7 +77,7 @@ resource "google_compute_region_health_check" "yashua-hc" {
   healthy_threshold   = 2
   unhealthy_threshold = 3
   http_health_check {
-    request_path = "/yashua-index.html"
+    request_path = "/index.html"
     port         = 80
   }
 }
