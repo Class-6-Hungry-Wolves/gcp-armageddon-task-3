@@ -1,11 +1,8 @@
-resource "google_compute_health_check" "jourdan-hc" {
+resource "google_compute_region_health_check" "jourdan-hc" {
   name                = "jourdan-hc"
-  check_interval_sec  = 10
-  timeout_sec         = 5
-  healthy_threshold   = 2
-  unhealthy_threshold = 3
+  check_interval_sec  = 1
+  timeout_sec         = 1
   http_health_check {
-    request_path = "/index.html"
     port         = 80
   }
 }

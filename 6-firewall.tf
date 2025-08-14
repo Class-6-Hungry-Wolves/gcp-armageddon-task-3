@@ -20,5 +20,5 @@ resource "google_compute_firewall" "private-allow-http" {
   }
 
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["jourdan-web", "joshua-web", "vito-web", "nick-web", "xavier-web", "law-web", "yahshua-web"] # Change target tag names to whatever you want
+  target_tags   = ["jourdan-web", "joshua-web", "vito-web", "nick-web", "xavier-web", "law-web", "yahshua-web", "hq-admin-allow-rdp"] # Change target tag names to whatever you want
 }

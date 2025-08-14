@@ -40,10 +40,10 @@ resource "google_compute_backend_service" "lb" {
     group           = google_compute_region_instance_group_manager.jourdan-app.instance_group 
     balancing_mode  = "UTILIZATION"
   }
-#     backend {
-#     group           = google_compute_region_instance_group_manager.vito-app.instance_group 
-#     balancing_mode  = "UTILIZATION"
-#   }
+    backend {
+    group           = google_compute_region_instance_group_manager.vito-app.instance_group 
+    balancing_mode  = "UTILIZATION"
+  }
 #     backend {
 #     group           = google_compute_region_instance_group_manager.joshua-app.instance_group 
 #     balancing_mode  = "UTILIZATION"
@@ -65,3 +65,24 @@ resource "google_compute_backend_service" "lb" {
 #     balancing_mode  = "UTILIZATION"
 #  }
 }
+
+# resource "google_compute_backend_service" "lb2" {
+#   name                  = "lb-backend-service-2"
+#   # region = "" (optional if provider default is set)
+  
+#   # Backend service is for an application and uses HTTP
+#   protocol              = "HTTP"
+
+#   # External LB and fully managed (next gen type, not classic)
+#   load_balancing_scheme = "INTERNAL_MANAGED"
+#   health_checks         = [google_compute_health_check.lb.id]
+
+#   # Named port from MIG
+#   port_name             = "webserver"
+
+#   # Use console defaults for this
+#   backend {
+#     group           = google_compute_instance_group_manager.vito-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
+# }

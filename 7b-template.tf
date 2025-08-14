@@ -1,6 +1,6 @@
 #Instance Template 
 #Jourdan - subnet: us-central1
-resource "google_compute_region_instance_template" "jourdan" {
+resource "google_compute_instance_template" "jourdan" {
   name        = "jourdan-template"
   description = "jourdan's VM template us-central1 subnet"
   region      = "us-central1"
@@ -18,12 +18,13 @@ resource "google_compute_region_instance_template" "jourdan" {
   # Network Configurations - connecting to us-central1 
   network_interface {
     subnetwork = google_compute_subnetwork.jourdan-linux-private-subnet.id
-    access_config {}
   }
 
    lifecycle {
     create_before_destroy = true
   }
+
+  tags = ["jourdan-web"]
 
   # Install Webserver using file() function
   metadata_startup_script = file("./startup.sh")
@@ -61,36 +62,36 @@ resource "google_compute_region_instance_template" "jourdan" {
 #   metadata_startup_script = file("./startup.sh")
 # }
 
-# #Instance Template
-# #Vito - subnet: southamerica-east1
-# resource "google_compute_region_instance_template" "vito" {
-#   name        = "vito-template"
-#   description = "vito's VM template southamerica-east1 subnet"
-#   region      = "southamerica-east1"
-#   # or write region argument statically as
-#   # region = "" (optional if provider default is set)
-#   machine_type = "e2-medium"
+#Instance Template
+#Vito - subnet: southamerica-east1
+resource "google_compute_instance_template" "vito" {
+  name        = "vito-template"
+  description = "vito's VM template southamerica-east1 subnet"
+  region      = "southamerica-east1"
+  # or write region argument statically as
+  # region = "" (optional if provider default is set)
+  machine_type = "e2-medium"
 
 
-#   # Create a new disk from an image and set as boot disk
-#   disk {
-#     source_image = "debian-cloud/debian-12"
-#     boot         = true
-#   }
+  # Create a new disk from an image and set as boot disk
+  disk {
+    source_image = "debian-cloud/debian-12"
+    boot         = true
+  }
 
-#   # Network Configurations 
-#   network_interface {
-#     subnetwork = google_compute_subnetwork.vito-linux-private-subnet.id
-#     access_config {}
-#   }
+  # Network Configurations 
+  network_interface {
+    subnetwork = google_compute_subnetwork.vito-linux-private-subnet.id
+    access_config {}
+  }
 
-#    lifecycle {
-#     create_before_destroy = true
-#   }
+   lifecycle {
+    create_before_destroy = true
+  }
 
-#   # Install Webserver using file() function
-#   metadata_startup_script = file("./startup.sh")
-# }
+  # Install Webserver using file() function
+  metadata_startup_script = file("./startup.sh")
+}
 
 # #Instance Template
 # #Yashua - subnet: asia-east2
