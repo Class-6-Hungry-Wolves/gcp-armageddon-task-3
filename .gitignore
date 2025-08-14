@@ -42,3 +42,7 @@ terraform.rc
 
 # Ignore .vs
 .vs 
+
+# Ignore authentication and backend
+0-authentication.tf
+1-backend.tf 
