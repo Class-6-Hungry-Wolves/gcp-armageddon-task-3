@@ -89,7 +89,7 @@ resource "google_compute_region_instance_template" "vito" {
     create_before_destroy = false
   }
 
-  tags = [ "vito-web" ]
+  tags = ["vito-web"]
 
   # Install Webserver using file() function
   metadata_startup_script = file("./startup.sh")

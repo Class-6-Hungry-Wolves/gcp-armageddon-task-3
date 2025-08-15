@@ -7,7 +7,7 @@ resource "google_compute_region_health_check" "jourdan-hc" {
   unhealthy_threshold = 3
   http_health_check {
     request_path = "/index.html"
-    port = 80
+    port         = 80
   }
 }
 

@@ -2,7 +2,7 @@
 # # Datasource: Get a list of Google Compute zones that are UP in a region
 data "google_compute_zones" "available-1" {
   status = "UP"
-  region = "us-central1" 
+  region = "us-central1"
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager
@@ -37,7 +37,7 @@ resource "google_compute_region_instance_group_manager" "jourdan-app" { # Change
 
 data "google_compute_zones" "available-2" {
   status = "UP"
-  region = "southamerica-east1" 
+  region = "southamerica-east1"
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager

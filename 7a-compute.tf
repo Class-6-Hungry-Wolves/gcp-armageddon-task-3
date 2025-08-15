@@ -9,7 +9,7 @@ resource "google_compute_instance" "hq_rdp_vm" {
   machine_type = "n2-standard-2"
   zone         = "us-central1-b"
 
-  tags = [ "hq-admin-allow-rdp" ]
+  tags = ["hq-admin-allow-rdp"]
   boot_disk {
     initialize_params {
       image = "windows-cloud/windows-2022"
