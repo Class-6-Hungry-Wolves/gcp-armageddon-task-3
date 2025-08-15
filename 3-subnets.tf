@@ -72,7 +72,7 @@ resource "google_compute_subnetwork" "jourdan_proxy_subnet" {
 }
 
 resource "google_compute_subnetwork" "vito_proxy_subnet" {
-  name          = "vito-linux-private-subnet"
+  name          = "vito-proxy-subnet"
   ip_cidr_range = "10.69.45.0/24"
   region        = "southamerica-east1"
   purpose       = "GLOBAL_MANAGED_PROXY"
@@ -81,7 +81,7 @@ resource "google_compute_subnetwork" "vito_proxy_subnet" {
 }
 
 resource "google_compute_subnetwork" "joshua_proxy_subnet" {
-  name          = "jourdan-proxy-subnet"
+  name          = "joshua-proxy-subnet"
   ip_cidr_range = "10.69.55.0/24"
   region        = "asia-northeast1"
   purpose       = "GLOBAL_MANAGED_PROXY"
