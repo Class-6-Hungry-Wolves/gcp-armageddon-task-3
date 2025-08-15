@@ -1,6 +1,6 @@
 #Instance Template 
 #Jourdan - subnet: us-central1
-resource "google_compute_instance_template" "jourdan" {
+resource "google_compute_region_instance_template" "jourdan" {
   name        = "jourdan-template"
   description = "jourdan's VM template us-central1 subnet"
   region      = "us-central1"
@@ -20,8 +20,8 @@ resource "google_compute_instance_template" "jourdan" {
     subnetwork = google_compute_subnetwork.jourdan-linux-private-subnet.id
   }
 
-   lifecycle {
-    create_before_destroy = true
+  lifecycle {
+    create_before_destroy = false
   }
 
   tags = ["jourdan-web"]
@@ -51,11 +51,11 @@ resource "google_compute_instance_template" "jourdan" {
 #   # Network Configurations 
 #   network_interface {
 #     subnetwork = google_compute_subnetwork.joshua-linux-private-subnet.id
-#     access_config {}
+#    
 #   }
 
 #    lifecycle {
-#     create_before_destroy = true
+#     create_before_destroy = false
 #   }
 
 #   # Install Webserver using file() function
@@ -64,7 +64,7 @@ resource "google_compute_instance_template" "jourdan" {
 
 #Instance Template
 #Vito - subnet: southamerica-east1
-resource "google_compute_instance_template" "vito" {
+resource "google_compute_region_instance_template" "vito" {
   name        = "vito-template"
   description = "vito's VM template southamerica-east1 subnet"
   region      = "southamerica-east1"
@@ -82,12 +82,14 @@ resource "google_compute_instance_template" "vito" {
   # Network Configurations 
   network_interface {
     subnetwork = google_compute_subnetwork.vito-linux-private-subnet.id
-    access_config {}
+
   }
 
-   lifecycle {
-    create_before_destroy = true
+  lifecycle {
+    create_before_destroy = false
   }
+
+  tags = [ "vito-web" ]
 
   # Install Webserver using file() function
   metadata_startup_script = file("./startup.sh")
@@ -113,11 +115,11 @@ resource "google_compute_instance_template" "vito" {
 #   # Network Configurations 
 #   network_interface {
 #     subnetwork = google_compute_subnetwork.yashua-linux-private-subnet.id
-#     access_config {} #Allows external IP 
+#     
 #   }
 
 #    lifecycle {
-#     create_before_destroy = true
+#     create_before_destroy = false
 #   }
 
 #   # Install Webserver using file() function
@@ -144,11 +146,11 @@ resource "google_compute_instance_template" "vito" {
 #   # Network Configurations 
 #   network_interface {
 #     subnetwork = google_compute_subnetwork.nick-linux-private-subnet.id
-#     access_config {}
+#    
 #   }
 
 #    lifecycle {
-#     create_before_destroy = true
+#     create_before_destroy = false
 #   }
 
 #   # Install Webserver using file() function
@@ -175,11 +177,11 @@ resource "google_compute_instance_template" "vito" {
 #   # Network Configurations 
 #   network_interface {
 #     subnetwork = google_compute_subnetwork.xavier-linux-private-subnet.id
-#     access_config {}
+#    
 #   }
 
 #    lifecycle {
-#     create_before_destroy = true
+#     create_before_destroy = false
 #   }
 
 #   # Install Webserver using file() function
@@ -206,7 +208,7 @@ resource "google_compute_instance_template" "vito" {
 #   # Network Configurations 
 #   network_interface {
 #     subnetwork = google_compute_subnetwork.law-linux-private-subnet.id
-#     access_config {}
+#    
 #   }
 
 #   # Install Webserver using file() function

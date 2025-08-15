@@ -1,5 +1,5 @@
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones
-# Datasource: Get a list of Google Compute zones that are UP in a region
+# # https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones
+# # Datasource: Get a list of Google Compute zones that are UP in a region
 data "google_compute_zones" "available-1" {
   status = "UP"
   region = "us-central1" 
@@ -18,16 +18,16 @@ resource "google_compute_region_instance_group_manager" "jourdan-app" { # Change
 
   # Instance Template argument for MIG
   version {
-    instance_template = google_compute_instance_template.jourdan.id
+    instance_template = google_compute_region_instance_template.jourdan.id
   }
 
   # Set a port to be used by backend service
   named_port {
-    name = "webserver"
+    name = "jourdan-webserver"
     port = 80
   }
 
-  #Autohealing Config
+  # Autohealing Config
   auto_healing_policies {
     health_check      = google_compute_region_health_check.jourdan-hc.id # Change app part of google_compute_region_health_check.app.id to the name of your healthcheck(s) in file 8
     initial_delay_sec = 300
@@ -53,12 +53,12 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
   # Instance Template argument for MIG
   version {
-    instance_template = google_compute_instance_template.vito.id
+    instance_template = google_compute_region_instance_template.vito.id
   }
 
   # Set a port to be used by backend service
   named_port {
-    name = "webserver"
+    name = "vito-webserver"
     port = 80
   }
 
@@ -76,8 +76,8 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 # }
 
 
-# # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager
-# # Resource: Managed Instance Group
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager
+# Resource: Managed Instance Group
 # resource "google_compute_region_instance_group_manager" "joshua-app" { # Change name of resource google_compute_region_instance_group_manager "app" to a name of your choosing, preferably correlating to region of subnetwork i.e. "virginia-app"
 #   depends_on         = [google_compute_router_nat.joshua-nat]          # Change iowa part of google_compute_router_nat.iowa to name of nat you created in file 5
 #   name               = "joshua-app-mig"
@@ -89,7 +89,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 #   # Instance Template argument for MIG
 #   version {
-#     instance_template = google_compute_region_instance_template.joshua.id
+#     instance_template = google_compute_instance_template.joshua.id
 #   }
 
 #   # Set a port to be used by backend service
@@ -108,7 +108,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 # data "google_compute_zones" "available-4" {
 #   status = "UP"
-#   region = "europe-west2" 
+#   region = "eruope-west2" 
 # }
 
 # # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager
@@ -124,7 +124,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 #   # Instance Template argument for MIG
 #   version {
-#     instance_template = google_compute_region_instance_template.nick.id
+#     instance_template = google_compute_instance_template.nick.id
 #   }
 
 #   # Set a port to be used by backend service
@@ -169,7 +169,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 #   # Autohealing Config
 #   auto_healing_policies {
-#     health_check      = google_compute_region_health_check.xavier-hc.id # Change app part of google_compute_region_health_check.app.id to the name of your healthcheck(s) in file 8
+#     health_check      = google_compute_health_check.xavier-hc.id # Change app part of google_compute_region_health_check.app.id to the name of your healthcheck(s) in file 8
 #     initial_delay_sec = 300
 #   }
 # }
@@ -195,7 +195,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 #   # Instance Template argument for MIG
 #   version {
-#     instance_template = google_compute_region_instance_template.law.id
+#     instance_template = google_compute_instance_template.law.id
 #   }
 
 #   # Set a port to be used by backend service
@@ -232,7 +232,7 @@ resource "google_compute_region_instance_group_manager" "vito-app" { # Change na
 
 #   # Instance Template argument for MIG
 #   version {
-#     instance_template = google_compute_region_instance_template.yashua.id
+#     instance_template = google_compute_instance_template.yashua.id
 #   }
 
 #   # Set a port to be used by backend service

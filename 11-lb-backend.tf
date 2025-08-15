@@ -32,18 +32,15 @@ resource "google_compute_backend_service" "lb" {
   load_balancing_scheme = "INTERNAL_MANAGED"
   health_checks         = [google_compute_health_check.lb.id]
 
-  # Named port from MIG
-  port_name             = "webserver"
-
   # Use console defaults for this
   backend {
     group           = google_compute_region_instance_group_manager.jourdan-app.instance_group 
     balancing_mode  = "UTILIZATION"
   }
-    backend {
-    group           = google_compute_region_instance_group_manager.vito-app.instance_group 
-    balancing_mode  = "UTILIZATION"
-  }
+#   backend {
+#     group           = google_compute_region_instance_group_manager.vito-app.instance_group 
+#     balancing_mode  = "UTILIZATION"
+#   }
 #     backend {
 #     group           = google_compute_region_instance_group_manager.joshua-app.instance_group 
 #     balancing_mode  = "UTILIZATION"
@@ -63,8 +60,9 @@ resource "google_compute_backend_service" "lb" {
 #   backend {
 #     group           = google_compute_region_instance_group_manager.yahshua-app.instance_group 
 #     balancing_mode  = "UTILIZATION"
-#  }
+# }
 }
+
 
 # resource "google_compute_backend_service" "lb2" {
 #   name                  = "lb-backend-service-2"
@@ -78,11 +76,11 @@ resource "google_compute_backend_service" "lb" {
 #   health_checks         = [google_compute_health_check.lb.id]
 
 #   # Named port from MIG
-#   port_name             = "webserver"
+#   port_name             = "vito-webserver"
 
 #   # Use console defaults for this
 #   backend {
-#     group           = google_compute_instance_group_manager.vito-app.instance_group 
+#     group           = google_compute_region_instance_group_manager.vito-app.instance_group 
 #     balancing_mode  = "UTILIZATION"
 #   }
 # }
