@@ -160,7 +160,7 @@ resource "google_compute_instance_template" "nick" {
   tags = ["nick-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./nick.sh")
 }
 
 # #Instance Template
