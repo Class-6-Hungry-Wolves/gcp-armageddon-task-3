@@ -27,7 +27,7 @@ resource "google_compute_instance_template" "jourdan" {
   tags = ["jourdan-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./jourdan.sh")
 }
 
 
