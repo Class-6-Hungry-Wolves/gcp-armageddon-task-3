@@ -127,7 +127,7 @@ resource "google_compute_instance_template" "yashua" {
   tags = ["yashua-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./yahshua.sh")
 }
 
 # #Instance Template
@@ -193,7 +193,7 @@ resource "google_compute_instance_template" "xavier" {
   tags = ["xavier-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./xavier.sh")
 }
 
 # #Instance Template
