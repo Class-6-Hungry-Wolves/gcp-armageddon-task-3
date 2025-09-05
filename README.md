@@ -103,7 +103,13 @@ gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
 | `11-lb-backend.tf` | Load balancer backend configuration |
 | `12-lb-frontend.tf` | Load balancer frontend and forwarding rules |
 | `startup.sh` | Instance startup script |
+| `joshua.sh` | Post-deployment automation script |
+| `jourdan.sh` | Post-deployment automation script |
 | `nick.sh` | Post-deployment automation script |
+| `vito.sh` | Post-deployment automation script |
+| `xavier.sh` | Post-deployment automation script |
+| `yahshua.sh` | Post-deployment automation script |
+
 
 #Configuration
 
