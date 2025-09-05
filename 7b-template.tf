@@ -61,7 +61,7 @@ resource "google_compute_instance_template" "joshua" {
   tags = ["joshua-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./joshua.sh")
 }
 
 #Instance Template
@@ -94,7 +94,7 @@ resource "google_compute_instance_template" "vito" {
   tags = ["vito-web"]
 
   # Install Webserver using file() function
-  metadata_startup_script = file("./startup.sh")
+  metadata_startup_script = file("./vito.sh")
 }
 
 # #Instance Template
