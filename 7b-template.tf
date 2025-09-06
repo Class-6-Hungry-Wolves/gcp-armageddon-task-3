@@ -99,8 +99,8 @@ resource "google_compute_instance_template" "vito" {
 
 # #Instance Template
 # #Yashua - subnet: asia-east2
-resource "google_compute_instance_template" "yashua" {
-  name        = "yashua-template"
+resource "google_compute_instance_template" "yahshua" {
+  name        = "yahshua-template"
   description = "yashua's VM template asia-east2 subnet"
   region      = "asia-east2"
   # or write region argument statically as

@@ -232,7 +232,7 @@ resource "google_compute_region_instance_group_manager" "yahshua-app" { # Change
 
   # Instance Template argument for MIG
   version {
-    instance_template = google_compute_instance_template.yashua.id
+    instance_template = google_compute_instance_template.yahshua.id
   }
 
   # Set a port to be used by backend service

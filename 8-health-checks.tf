@@ -5,6 +5,7 @@ resource "google_compute_region_health_check" "jourdan-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -15,6 +16,7 @@ resource "google_compute_region_health_check" "vito-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -25,6 +27,7 @@ resource "google_compute_region_health_check" "joshua-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -35,6 +38,7 @@ resource "google_compute_region_health_check" "nick-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -45,6 +49,7 @@ resource "google_compute_region_health_check" "xavier-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -55,6 +60,7 @@ resource "google_compute_region_health_check" "law-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
@@ -65,6 +71,7 @@ resource "google_compute_region_health_check" "yashua-hc" {
   check_interval_sec = 5
   http_health_check {
     port = 80
+    request_path = "/index.html"
   }
 }
 
