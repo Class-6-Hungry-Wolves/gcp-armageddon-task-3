@@ -27,10 +27,9 @@ resource "google_compute_backend_service" "lb" {
 
   # Backend service is for an application and uses HTTP
   protocol = "HTTP"
-
   port_name = "webserver"
 
-  # External LB and fully managed (next gen type, not classic)
+  # Internal LB and fully managed (next gen type, not classic)
   load_balancing_scheme = "INTERNAL_MANAGED"
   health_checks         = [google_compute_health_check.lb.id]
 
@@ -63,5 +62,4 @@ resource "google_compute_backend_service" "lb" {
       group           = google_compute_region_instance_group_manager.yahshua-app.instance_group 
       balancing_mode  = "UTILIZATION"
   }
-
 }

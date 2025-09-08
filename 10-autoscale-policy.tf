@@ -4,8 +4,8 @@ resource "google_compute_region_autoscaler" "joshua-autoscaler-region" {
   target = google_compute_region_instance_group_manager.joshua-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -20,8 +20,8 @@ resource "google_compute_region_autoscaler" "vito-autoscaler-region" {
   target = google_compute_region_instance_group_manager.vito-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -36,8 +36,8 @@ resource "google_compute_region_autoscaler" "yashua-autoscaler-region" {
   target = google_compute_region_instance_group_manager.yahshua-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -52,8 +52,8 @@ resource "google_compute_region_autoscaler" "xavier-autoscaler-region" {
   target = google_compute_region_instance_group_manager.xavier-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -68,8 +68,8 @@ resource "google_compute_region_autoscaler" "law-autoscaler-region" {
   target = google_compute_region_instance_group_manager.law-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -84,8 +84,8 @@ resource "google_compute_region_autoscaler" "jourdan-autoscaler-region" {
   target = google_compute_region_instance_group_manager.jourdan-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
@@ -101,8 +101,8 @@ resource "google_compute_region_autoscaler" "nick-autoscaler-region" {
   target = google_compute_region_instance_group_manager.nick-app.id
 
   autoscaling_policy {
-    max_replicas    = 3
-    min_replicas    = 1
+    max_replicas    = 6
+    min_replicas    = 3
     cooldown_period = 60
 
     cpu_utilization {
